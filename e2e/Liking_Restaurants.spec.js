@@ -17,11 +17,11 @@ Scenario('liking one restaurant', async ({ I }) => {
 
   I.amOnPage('/')
   I.seeElement('.resto_list')
-  I.wait(3)
+  I.wait(2)
   I.seeElement('.resto_item_detail')
-  I.wait(3)
+  I.wait(2)
   I.seeElement('.name-item a')
-  I.wait(3)
+  I.wait(2)
 
   const firstRestaurant = locate('.name-item a').first()
   const firstRestaurantName = await I.grabTextFrom(firstRestaurant)
@@ -41,18 +41,18 @@ Scenario('searching restaurants', async ({ I }) => {
   I.see('Tidak ada restaurant untuk ditampilkan', '.resto-item__not__found')
 
   I.amOnPage('/')
-
+  I.wait(2)
   I.seeElement('.name-item a')
 
   const names = []
 
   for (let i = 1; i <= 3; i++) {
     I.click(locate('.name-item a').at(i))
-
+	I.wait(2)
     I.seeElement('#likeButton')
-
+	I.wait(2)
     I.click('#likeButton')
-
+	I.wait(2)
     names.push(await I.grabTextFrom('.name'))
 
     I.amOnPage('/')

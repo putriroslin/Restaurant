@@ -9,9 +9,9 @@ Before(async ({ I }) => {
   I.see('Tidak ada restaurant untuk ditampilkan', '.resto-item__not__found')
 
   I.amOnPage('/')
-
+  I.wait(2)
   I.seeElement('.name-item a')
-
+  I.wait(2)
   const firstRestaurant = locate('.name-item a').first()
   const firstRestaurantName = await I.grabTextFrom(firstRestaurant)
   I.click(firstRestaurant)
